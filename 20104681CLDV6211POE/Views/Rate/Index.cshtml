@@ -1,0 +1,46 @@
+﻿@model IEnumerable<_20104681CLDV6211POE.Models.RateData>
+@{
+    ViewData["Title"] = "Rate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div id="main">
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Rates</span> @*When extended*@
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav2">&#9776; Rates</span>@*When reclined*@
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thread>
+                    <tr>
+                        <th><h5 style="color:black">Job Type</h5></th>
+                        <th><h5 style="color:black">Rate</h5></th>
+                        <th><h5 style="color:black">Manage</h5></th>
+                    </tr>
+                </thread>
+                <tbody>
+                    @foreach (var ra in Model)
+                    {
+                        <tr>
+                            <td style="color:black">@Html.DisplayFor(modelItem => ra.JobType)</td>
+                            <td style="color:black">@Html.DisplayFor(modelItem => ra.Rate)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@ra.JobType" class="fa fa-wrench" style="color:green">Edit</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</body>

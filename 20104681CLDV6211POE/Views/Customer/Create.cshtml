@@ -1,0 +1,83 @@
+﻿@model _20104681CLDV6211POE.Models.CustomerData
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+    <div id="main">
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Create</span> @*When extended*@
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav2">&#9776; Create</span>@*When reclined*@
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a asp-action="Index" style="color:darkslategrey" class="fa fa-arrow-left"> Back</a>
+        </nav>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">Create New Customer</h1>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <form asp-action="Create">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="CustomerID" />
+                                    <div class="form-group">
+                                        <label asp-for="CustomerName" class="control-label"></label>
+                                        <input asp-for="CustomerName" type="text" class="form-control" />
+                                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="CustomerSurname" class="control-label"></label>
+                                        <input asp-for="CustomerSurname" type="text" class="form-control" />
+                                        <span asp-validation-for="CustomerSurname" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="AddressLineOne" class="control-label"></label>
+                                        <input asp-for="AddressLineOne" type="text" class="form-control" />
+                                        <span asp-validation-for="AddressLineOne" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="AddressLineTwo" class="control-label"></label>
+                                        <input asp-for="AddressLineTwo" type="text" class="form-control" />
+                                        <span asp-validation-for="AddressLineTwo" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="City" class="control-label"></label>
+                                        <input asp-for="City" type="text" class="form-control" />
+                                        <span asp-validation-for="City" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="PostalCode" class="control-label"></label>
+                                        <input asp-for="PostalCode" type="text" class="form-control" />
+                                        <span asp-validation-for="PostalCode" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <input type="submit"  value="Create Customer" style="background-color:green" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

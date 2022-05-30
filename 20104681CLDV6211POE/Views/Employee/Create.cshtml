@@ -1,0 +1,69 @@
+﻿@model _20104681CLDV6211POE.Models.EmployeeData
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+    <div id="main">
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Create</span> @*When extended*@
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav2">&#9776; Create</span>@*When reclined*@
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a asp-action="Index" style="color:darkslategrey" class="fa fa-arrow-left"> Back</a>
+        </nav>
+        <div class="card-body">
+                    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">Add New Employee</h1>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <form asp-action="Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="EmployeeNo" class="control-label"></label>
+                                    <input asp-for="EmployeeNo" type="text" class="form-control" />
+                                    <span asp-validation-for="EmployeeNo" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="EmployeeName" class="control-label"></label>
+                                    <input asp-for="EmployeeName" type="text" class="form-control" />
+                                    <span asp-validation-for="EmployeeName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="EmployeeSurname" class="control-label"></label>
+                                    <input asp-for="EmployeeSurname" type="text" class="form-control" />
+                                    <span asp-validation-for="EmployeeSurname" class="text-danger"></span>
+                                </div>
+                                <div>
+                                    <input type="submit" value="Create Employee" style="background-color:green" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</body>
+
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

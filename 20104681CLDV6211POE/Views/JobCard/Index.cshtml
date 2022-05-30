@@ -1,0 +1,54 @@
+﻿@model IEnumerable<_20104681CLDV6211POE.Models.JobCardData>
+@{
+    ViewData["Title"] = "JobCards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div id="main">
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Job Cards</span> @*When extended*@
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav2">&#9776; Job Cards</span>@*When reclined*@
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    @**For the display of the employee info*@
+    <div class="card">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a asp-action="Create" class="fa fa-plus"> Add new Job Card</a>
+        </nav>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thread>
+                    <tr>
+                        <th><h5 style="color:black">Job Card Number</h5></th>
+                        <th><h5 style="color:black">Number of Days</h5></th>
+                        <th><h5 style="color:black">Employees Assigned</h5></th>
+                        <th><h5 style="color:black">Manage</h5></th>
+                    </tr>
+                </thread>
+                <tbody>
+                    @foreach (var job in Model)
+                    {
+                        <tr>
+                            <td style="color:black">@Html.DisplayFor(modelItem => job.JobCardNo)</td>
+                            <td style="color:black">@Html.DisplayFor(modelItem => job.NoOfDays)</td>
+                            <td style="color:black">@Html.DisplayFor(modelItem => job.EmployeesAssigned)</td>
+                            <td>
+                                <a asp-action="Employees" asp-route-id="@job.JobCardNo.ToString()" class="fa fa-plus">Add Employee</a>
+                                <a asp-action="Edit" asp-route-id="@job.JobCardNo.ToString()" class="fa fa-info" style="color:orange">View Invoice</a>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</body>

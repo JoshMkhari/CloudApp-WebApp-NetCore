@@ -1,0 +1,108 @@
+﻿@model IEnumerable<_20104681CLDV6211POE.Models.JobCardData>
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body>
+
+    <div id="main">
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Edit</span> @*When extended*@
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav2">&#9776; Edit</span>@*When reclined*@
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a asp-action="Index" style="color:darkslategrey" class="fa fa-arrow-left"> Back</a>
+            <a asp-action="Create" class="fa fa-plus"> Add new Job Card</a>
+        </nav>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">View Job Card Invoice</h1>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <ul>
+                                    @foreach (var job in Model)
+                                    {
+                                        <li>Job Card No: @Html.DisplayFor(model => job.JobCardNo)</li>
+                                        <li> </li>
+                                        <li> </li>
+                                        <li>Customer Details:</li>
+                                        <li>@Html.DisplayFor(model => job.CustomerName) @Html.DisplayFor(model => job.CustomerSurname),@Html.DisplayFor(model => job.AddressLine),@Html.DisplayFor(model => job.City),@Html.DisplayFor(model => job.PostalCode)</li>
+                                        <li> </li>
+                                        <li> </li>
+                                        <li>Job Type: @Html.DisplayFor(model => job.JobType)</li>
+                                        <li> </li>
+                                        <li> </li>
+                                        <li>Employees allocated:</li>
+                                        <li>@Html.DisplayFor(model => job.EmployeesAssigned)</li>
+                                        <li> </li>
+                                        <li> </li>
+                                        <li>Equiptment/Materials:</li>
+                                        <li>@Html.DisplayFor(model => job.FloorBoards) x standard floor boards</li>
+                                        <li>@Html.DisplayFor(model => job.PowerPoints) x powerPoints</li>
+                                        <li>@Html.DisplayFor(model => job.Sew) x metres standard electrical wiring</li>
+                                        <li>@Html.DisplayFor(model => job.Stairs) x standard stairs pack</li>
+                                        <li> </li>
+                                        <li> Costs</li>
+                                        <li> </li>
+                                        <li> </li>
+                                    }
+
+                                </ul>
+                                <table class="table table-hover">
+                                    <thread>
+                                        <tr>
+                                            <th><h5 style="color:black">Job Type</h5></th>
+                                            <th><h5 style="color:black">Rate</h5></th>
+                                            <th><h5 style="color:black">No. of days</h5></th>
+                                            <th><h5 style="color:black">Subtotal</h5></th>
+                                            <th><h5 style="color:black">VAT at 14%</h5></th>
+                                            <th><h5 style="color:black">Total</h5></th>
+                                        </tr>
+                                    </thread>
+                                    <tbody>
+                                        <tr>
+                                            @foreach (var job in Model)
+                                            {
+                                                <td style="color:black">@Html.DisplayFor(model => job.JobType)</td>
+                                                <td style="color:black">@Html.DisplayFor(model => job.Rate)</td>
+                                                <td style="color:black">@Html.DisplayFor(model => job.NoOfDays)</td>
+                                                <td style="color:black">@Html.DisplayFor(model => job.SubTotal)</td>
+                                                <td style="color:black">@Html.DisplayFor(model => job.Vat)</td>
+                                                <td style="color:black">@Html.DisplayFor(model => job.Total)</td>
+                                            }
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                @foreach (var job in Model)
+                                {
+                                    <a asp-action="Delete" asp-route-id="@job.JobCardNo.ToString()" class="fa fa-trash" style="color:red">Delete</a>
+                                }
+
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

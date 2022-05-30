@@ -1,0 +1,51 @@
+﻿@model _20104681CLDV6211POE.Models.JobCardData
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+    <div id="main">
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Create New JobCard</span> @*When extended*@
+            <span style="font-size:30px;cursor:pointer; color: white;" class="nav2">&#9776; Create New JobCard</span>@*When reclined*@
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a asp-action="Index" style="color:darkslategrey" class="fa fa-arrow-left"> Back</a>
+        </nav>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">Create new Job Card</h1>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <form asp-action="ExistingCustomer">
+                                    <div>
+                                        <input type="submit" value="From Existing Customer" style="background-color:blue" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                                <form asp-action="ForNewCustomer">
+                                    <div>
+                                        <input type="submit" value="For New Customer" style="background-color:green" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

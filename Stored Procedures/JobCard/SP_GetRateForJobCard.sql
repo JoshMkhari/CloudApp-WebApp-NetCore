@@ -1,0 +1,10 @@
+CREATE PROCEDURE SP_GetRateForJobCard
+(
+	@JobCardNo int = 0
+)
+AS
+BEGIN
+Select  em.RATE_ID as [JobType] from EQUIPTMENT_MATERIALS em
+inner join JOB_EQUIPTMENT_MATERIALS jem on jem.EQUIPTMENT_MATERIALS_ID = em.EQUIPTMENT_MATERIALS_ID
+where JOB_CARD_NO = @JobCardNo
+END

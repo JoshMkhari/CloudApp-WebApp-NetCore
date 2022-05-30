@@ -1,0 +1,10 @@
+CREATE PROCEDURE SP_AddEqID
+(
+@RateID int = 0,
+@StandardFloorBoards int =0
+)
+AS
+BEGIN
+	INSERT INTO EQUIPTMENT_MATERIALS(RATE_ID,STANDARD_FLOOR_BOARDS)
+	VALUES (@RateID,@StandardFloorBoards)
+END

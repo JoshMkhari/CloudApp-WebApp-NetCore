@@ -1,0 +1,8 @@
+CREATE PROCEDURE SP_DeleteEmployeeJob
+(
+	@JobCardNo int = 0
+)
+AS
+BEGIN
+DELETE FROM EMPLOYEE_JOB_CARD WHERE JOB_CARD_NO = @JobCardNo
+END
